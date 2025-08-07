@@ -1,0 +1,65 @@
+[
+    {
+        "test_case_id": "TC_001",
+        "description": "Valid Passenger List with Adults, Children, Youth, and Infants",
+        "test_steps": [
+            "Create a PaxList with at least one adult, one child, one youth, and one infant.",
+            "Ensure each <Pax> has a unique <PaxID>.",
+            "Verify each <Pax> has a valid <PTC> value (ADT, CHD, GBE, INF)."
+        ],
+        "expected_result": "Success: Passenger list is successfully processed with all passenger types.",
+        "priority": "High",
+        "type": "Positive"
+    },
+    {
+        "test_case_id": "TC_002",
+        "description": "Valid Passenger List with Multiple Infants per Adult",
+        "test_steps": [
+            "Create a PaxList with an adult and two infants.",
+            "Verify that the infant <Pax> elements are associated with the adult <Pax> element."
+        ],
+        "expected_result": "Success: Passenger list is successfully processed with multiple infants per adult.",
+        "priority": "High",
+        "type": "Positive"
+    },
+    {
+        "test_case_id": "TC_003",
+        "description": "Invalid Passenger List: Missing PaxID",
+        "test_steps": [
+            "Create a PaxList with a <Pax> element missing a <PaxID> attribute."
+        ],
+        "expected_result": "Error: Validation error due to missing <PaxID> attribute.",
+        "priority": "High",
+        "type": "Negative"
+    },
+    {
+        "test_case_id": "TC_004",
+        "description": "Invalid Passenger List: Invalid PTC Code",
+        "test_steps": [
+            "Create a PaxList with a <Pax> element containing an invalid PTC code (e.g., 'XYZ')."
+        ],
+        "expected_result": "Error: Validation error due to invalid PTC code.",
+        "priority": "High",
+        "type": "Negative"
+    },
+    {
+        "test_case_id": "TC_005",
+        "description": "Invalid Passenger List: Duplicate PaxID",
+        "test_steps": [
+            "Create a PaxList with two <Pax> elements sharing the same <PaxID>."
+        ],
+        "expected_result": "Error: Validation error due to duplicate <PaxID>.",
+        "priority": "High",
+        "type": "Negative"
+    },
+    {
+        "test_case_id": "TC_006",
+        "description": "Invalid Passenger List: No Adults",
+        "test_steps": [
+            "Create a PaxList containing only children, youth, and infants."
+        ],
+        "expected_result": "Error: Booking requires at least one adult.",
+        "priority": "High",
+        "type": "Negative"
+    }
+]
